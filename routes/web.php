@@ -7,9 +7,8 @@ use App\Http\Controllers\TransaksiController;
 use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\DashboardController;
 
-Route::get('/', function () {
-    return view('auth/login');
-});
+Route::get('/', [DashboardController::class, 'index'])
+    ->middleware('auth');
 
 
 Route::middleware('guest')->group(function () {
